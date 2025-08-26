@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- 
+    Página de inicio de sesión para DATACMR
+    Autor: Javier Hurtado 
+    Versión: 1.0
+    Descripción: Formulario de login con diseño responsive y validación de campos
+-->
+
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página de inicio de sesión para DATACMR">
+  <meta name="theme-color" content="#60BB95">
+  
+  <title>Inicio de sesión - DATACMR</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="LogoNesagaviria_Completo_M.png">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+  <main class="main-container">
+    <!-- Sección izquierda - Logo y redes sociales -->
+    <section class="left" aria-label="Información de la empresa">
+      <h1>¡Bienvenido <em>a DATACMR</em>!</h1>
+      
+      <div class="logo">
+        <img src="LogoNesagaviria_Completo_M.png" 
+             alt="Logo DATACMR" 
+             width="400" 
+             height="auto">
+      </div>
+      
+      <nav class="social-icons" aria-label="Redes sociales">
+        <a href="#" aria-label="Visitar sitio web">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+        </a>
+        <a href="#" aria-label="Seguir en Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="#" aria-label="Seguir en YouTube">
+          <i class="fab fa-youtube" aria-hidden="true"></i>
+        </a>
+        <a href="#" aria-label="Seguir en Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="tel:+1234567890" aria-label="Llamar por teléfono">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+        </a>
+      </nav>
+
+      <!-- Copyright al lado izquierdo debajo de redes -->
+      <div class="copyright">
+        <i class="fas fa-copyright" aria-hidden="true"></i> 
+        2025 DATACMR. Todos Los Derechos Reservados
+      </div>
+    </section>
+
+    <!-- Sección derecha - Formulario de login -->
+    <section class="right" aria-label="Formulario de inicio de sesión">
+      <form id="loginForm" class="login-form" novalidate>
+        <div class="login-container">
+          <!-- Campo de correo electrónico -->
+          <div class="input-group">
+            <label for="usuario" class="visually-hidden">Correo electrónico</label>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <input type="email" 
+                   id="usuario" 
+                   name="usuario" 
+                   placeholder="Correo electrónico"
+                   required
+                   autocomplete="email">
+          </div>
+          <div id="usuarioError" class="error" role="alert" aria-live="polite"></div>
+
+          <!-- Campo de contraseña -->
+          <div class="input-group">
+            <label for="contrasena" class="visually-hidden">Contraseña</label>
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <input type="password" 
+                   id="contrasena" 
+                   name="contrasena" 
+                   placeholder="Contraseña"
+                   required
+                   autocomplete="current-password"
+                   minlength="6">
+          </div>
+          <div id="contrasenaError" class="error" role="alert" aria-live="polite"></div>
+
+          <!-- Enlace de contraseña olvidada -->
+          <div class="forgot-password">
+            <a href="#" aria-label="Recuperar contraseña">¿Olvidaste la contraseña?</a>
+          </div>
+
+          <!-- Enlace de registro debajo del botón de ingreso -->
+          <div class="register-below">
+            ¿Todavía no tienes una cuenta? 
+            <a href="#" aria-label="Crear una cuenta nueva">Regístrate</a>
+          </div>
+
+          <!-- Botón de inicio de sesión -->
+          <div class="boton-container">
+            <button type="submit" class="login-btn">
+              Ingresar
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- Footer oculto en este diseño -->
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginForm = document.getElementById('loginForm');
+      const usuarioInput = document.getElementById('usuario');
+      const contrasenaInput = document.getElementById('contrasena');
+      const usuarioError = document.getElementById('usuarioError');
+      const contrasenaError = document.getElementById('contrasenaError');
+
+      loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Limpiar mensajes de error anteriores
+        usuarioError.textContent = '';
+        contrasenaError.textContent = '';
+
+        let valido = true;
+
+        // Validación del correo electrónico
+        if (!usuarioInput.value.trim()) {
+          usuarioError.textContent = 'El correo electrónico es obligatorio';
+          valido = false;
+        } else if (!usuarioInput.checkValidity()) {
+          usuarioError.textContent = 'Por favor, ingresa un correo electrónico válido';
+          valido = false;
+        }
+
+        // Validación de la contraseña
+        if (!contrasenaInput.value.trim()) {
+          contrasenaError.textContent = 'La contraseña es obligatoria';
+          valido = false;
+        } else if (contrasenaInput.value.length < 6) {
+          contrasenaError.textContent = 'La contraseña debe tener al menos 6 caracteres';
+          valido = false;
+        }
+
+        if (valido) {
+          alert('Inicio de sesión exitoso');
+          // Aquí se puede redirigir o enviar la petición al servidor
+        }
+      });
+    });
+  </script>
+</body>
+</html>

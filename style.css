@@ -1,0 +1,348 @@
+/* 
+    Estilos principales para la página de login de DATACMR
+    Autor: Javier Hurtado Moreno
+    Versión: 1.0
+    Descripción: Estilos base y componentes principales del formulario de login
+*/
+
+/* Variables globales para colores y valores comunes */
+:root {
+    --primary-color: #00a97a;
+    --secondary-color: #60bb95;
+    --text-color: #333;
+    --error-color: #ff0000;
+    --white: #ffffff;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estructura base del cuerpo */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 150vw;
+    height: 100%;
+}
+
+/* Contenedor principal en dos columnas */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Ocultar accesible */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Bloque izquierdo */
+.left {
+    width: 50%;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Logo */
+.left .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.left .logo img {
+    max-width: 400px;
+    height: auto;
+}
+
+/* Redes sociales */
+.social-icons {
+    margin-top: -1rem;
+    display: flex;
+    gap: 2.5rem;
+}
+.social-icons a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+.social-icons i {
+    font-size: 2rem;
+}
+
+/* Bloque derecho */
+.right {
+    width: 50%;
+    height: 100vh;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    padding: 2rem;
+    position: relative;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.25em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Contenedor de login */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 300px;
+    max-width: 100%;
+}
+
+/* Grupo de input */
+.input-group {
+    background-color: var(--secondary-color);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--white);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.input-group:hover {
+    background-color: #1a7f7a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    cursor: text;
+}
+.input-group:focus-within {
+    border-color: var(--white);
+}
+.input-group i {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+input {
+    background: none;
+    border: none;
+    color: var(--white);
+    flex: 1;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.5rem 0;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mensajes de error */
+.error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    min-height: 1.25rem;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Contraseña olvidada */
+.forgot-password {
+    text-align: right;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: -1.9rem;
+}
+.forgot-password a {
+    color: var(--error-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.forgot-password a:hover {
+    color: #cc0000;
+}
+
+/* Botón login */
+.login-btn {
+    background-color: var(--secondary-color);
+    padding: 0.75rem;
+    border: 1px solid var(--white);
+    border-radius: 25px;
+    color: var(--white);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+.login-btn:hover {
+    background-color: #1a7f7a;
+    transform: translateY(-2px);
+}
+.login-btn:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Contenedor de botón */
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.0rem;
+}
+
+/* Copyright en izquierda */
+.left .copyright {
+    margin-top: 2rem;
+    font-size: 0.9em;
+    color: var(--text-color);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* Enlace de registro */
+.register-below {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--white);
+}
+.register-below a {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: white; /* ✅ Subrayado en negro */
+}
+.register-below a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+/* Foco accesible */
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Validación HTML5 */
+input:invalid {
+    border-color: var(--error-color);
+}
+
+/* Animación de errores */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Asegurar sin scroll horizontal */
+html, body, .main-container {
+    overflow-x: hidden !important;
+}
+
+/* ===============================
+   DISEÑO RESPONSIVE PARA MÓVILES
+   =============================== */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column-reverse; /* ✅ Invierte el orden SOLO en móviles */
+  }
+
+  .left,
+  .right {
+    width: 100vw;
+    height: auto;
+  }
+
+  .left {
+    padding: 1.5rem 1rem;
+  }
+
+  .right {
+    padding: 2rem 1rem;
+  }
+
+  .left .logo img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .register-below {
+    font-size: 1em;
+    margin-top: 1.5rem;
+  }
+
+  .left .copyright {
+    flex-direction: column;
+    font-size: 0.8rem;
+    gap: 0.25rem;
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .login-btn {
+    width: 100%;
+  }
+}
+/* --- Corrección de simetría en pantallas grandes --- */
+@media screen and (min-width: 1025px) {
+  .main-container {
+    width: 100vw;            /* Usar 100% del ancho visible */
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left, .right {
+    flex: 1;                 /* Ambas columnas toman el 50% exacto */
+    max-width: 50vw;
+    height: 100vh;
+  }
+
+  .left {
+    background-color: var(--white);
+  }
+
+  .right {
+    background-color: var(--primary-color);
+  }
+}
+
+

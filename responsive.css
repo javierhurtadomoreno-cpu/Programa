@@ -1,0 +1,314 @@
+/* 
+  Archivo combinado: style.css (base + responsive)
+  Autor: Javier Hurtado Moreno
+  Descripción: Estilos base y adaptativos para el formulario de login de DATACMR. Incluye diseño responsive para móviles, tablets y pantallas grandes.
+*/
+
+:root {
+  --primary-color: #00a97a;       /* Verde institucional */
+  --secondary-color: #238F89;     /* Verde profundo para botones/inputs */
+  --text-color: #333;             /* Color del texto principal */
+  --error-color: #ff0000;         /* Rojo para errores */
+  --white: #ffffff;               /* Blanco puro */
+}
+
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+}
+
+/* Contenedor izquierdo - logo y redes */
+.left {
+  width: 50%;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.left .logo img {
+  max-width: 400px;
+  height: auto;
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.social-icons a {
+  color: var(--primary-color);
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.left .copyright {
+  margin-top: 2rem;
+  font-size: 0.9em;
+  color: var(--text-color);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Contenedor derecho - formulario */
+.right {
+  width: 50%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  padding: 2rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 300px;
+  max-width: 100%;
+}
+
+.input-group {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--white);
+  border-radius: 25px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  background-color: #1a7f7a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.input-group i {
+  margin-right: 1rem;
+  font-size: 1.3rem;
+}
+
+input {
+  background: none;
+  border: none;
+  color: var(--white);
+  flex: 1;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.5rem 0;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+}
+
+.forgot-password {
+  text-align: right;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: -1rem;
+}
+
+.forgot-password a {
+  color: var(--error-color);
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  color: #cc0000;
+}
+
+.login-btn {
+  background-color: var(--secondary-color);
+  padding: 0.75rem;
+  border: 1px solid var(--white);
+  border-radius: 25px;
+  color: var(--white);
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.login-btn:hover {
+  background-color: #1a7f7a;
+  transform: translateY(-2px);
+}
+
+.boton-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.register-below {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--white);
+}
+
+.register-below a {
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.register-below a:hover {
+  color: var(--secondary-color);
+}
+
+/* ===============================
+   Responsive: Tablets (≤1024px)
+   =============================== */
+@media screen and (max-width: 1024px) {
+  .right {
+    width: 50%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .left .logo img {
+    max-width: 300px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+/*   Responsive: Móviles (≤768px)  */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    padding: 20px;
+    order: 1; /* Mostrar primero */
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+    order: 2; /* Mostrar después */
+  }
+
+  .left .logo img {
+    max-width: 250px;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .social-icons {
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .social-icons i {
+    font-size: 1.5rem;
+  }
+
+  .login-container {
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+
+  .login-btn {
+    width: 100%;
+  }
+}
+
+/* Responsive: Muy pequeños (≤480px) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .left .logo img {
+    max-width: 200px;
+  }
+
+  .login-container {
+    width: 95%;
+  }
+
+  .input-group {
+    padding: 8px 12px;
+  }
+
+  .input-group i {
+    font-size: 1.2rem;
+    margin-right: 12px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+}
+
+/*  Responsive: Pantallas grandes (≥1440px)*/
+@media screen and (min-width: 1440px) {
+  .right {
+    width: 800px;
+  }
+
+  .login-container {
+    width: 350px;
+  }
+
+  h1 {
+    font-size: 3.5em;
+  }
+
+  .left .logo img {
+    max-width: 500px;
+  }
+}
